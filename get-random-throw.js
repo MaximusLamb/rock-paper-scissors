@@ -13,4 +13,3 @@ function getRandomThrow() {
         return 'rock';
     }
 }
-console.log(getRandomThrow());
