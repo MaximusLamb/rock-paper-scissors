@@ -10,17 +10,33 @@ let wins = 0;
 let total = 0;
 let losses = 0;
 
-button.addEventListener('click'), () => {
-    const games = document.querySelector ('input:checked');
+button.addEventListener('click', () => {
+
+    const games = document.querySelector('input[type=radio]:checked');
     let playerChoice = games.value;
-    console.log(playerChoice);
     let computerThrow = getRandomThrow();
+
     checkResult(playerChoice, computerThrow);
+
     if (checkResult(playerChoice, computerThrow) === 'win') {
-        wins++;
-        total++;
+
+        wins ++;
+        total ++;
+        winsTotal.textContent = wins;
+        totalsTotal.textContent = total;
+        return 'win';
+
     } else if (checkResult(playerChoice, computerThrow) === 'lose') {
-            losses++;
-            total++;
-        } else  {
-        total++};
+        losses ++;
+        total ++;
+        lossesTotal.textContent = wins;
+        totalsTotal.textContent = total;
+        return 'lose';
+    } else {
+        total ++;
+        totalsTotal.textContent = total;
+        return 'draw';
+    }
+});
+
+//<input type="radio" id="game-board--rock" name="move" value="rock" checked></input>
