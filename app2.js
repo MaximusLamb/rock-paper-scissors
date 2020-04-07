@@ -5,6 +5,7 @@ const winsTotal = document.getElementById('winTotal');
 const totalsTotal = document.getElementById('totalTotal');
 const lossesTotal = document.getElementById('lossTotal');
 let button = document.getElementById('play-button');
+let reset = document.getElementById('reset-button');
 
 let wins = 0;
 let total = 0;
@@ -27,16 +28,29 @@ button.addEventListener('click', () => {
         return 'win';
 
     } else if (checkResult(playerChoice, computerThrow) === 'lose') {
+
         losses ++;
         total ++;
-        lossesTotal.textContent = wins;
+        lossesTotal.textContent = losses;
         totalsTotal.textContent = total;
         return 'lose';
+        
     } else {
         total ++;
         totalsTotal.textContent = total;
         return 'draw';
     }
+});
+
+reset.addEventListener('click', () => {
+
+    winsTotal.textContent = 0;
+    totalsTotal.textContent = 0;
+    lossesTotal.textContent = 0;
+
+    wins = 0;
+    losses = 0;
+    total = 0;
 });
 
 //<input type="radio" id="game-board--rock" name="move" value="rock" checked></input>
