@@ -13,5 +13,4 @@ function checkResult(playerChoice, computerResult){
     } else {
         return 'win';
     }
-
-};
+}
